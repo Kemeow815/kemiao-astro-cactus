@@ -2,6 +2,7 @@
 import { render } from "astro:content";
 import { getAllPosts } from "@/data/post";
 import PostLayout from "@/layouts/BlogPost.astro";
+import Giscus from "@/components/giscus.astro";
 import type { GetStaticPaths, InferGetStaticPropsType } from "astro";
 
 // if you're using an adaptor in SSR mode, getStaticPaths wont work -> https://docs.astro.build/en/guides/routing/#modifying-the-slug-example-for-ssr
@@ -21,4 +22,10 @@ const { Content } = await render(post);
 
 <PostLayout post={post}>
 	<Content />
+	<Giscus
+  repo="Kemeow815/kemiao-astro-cactus"
+  repoId="R_kgDOOCb1rw"
+  category="Announcements"
+  categoryId="DIC_kwDOOCb1r84CrVYr"
+/>
 </PostLayout>

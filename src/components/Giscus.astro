@@ -1,0 +1,57 @@
+---
+
+const { repo, repoId, category, categoryId } = Astro.props;
+---
+
+<div id="giscus-comment"></div>
+
+<script src="https://giscus.app/client.js"
+  data-repo={repo}
+  data-repo-id={repoId}
+  data-category={category}
+  data-category-id={categoryId}
+  data-mapping="pathname"
+  data-reactions-enabled="1"
+  data-emit-metadata="0"
+  data-input-position="bottom"
+  data-theme="light"
+  crossorigin="anonymous"
+  async>
+</script>
+
+<script>
+  document.addEventListener('DOMContentLoaded', () => {
+    const updateTheme = () => {
+      const darkMode = window.matchMedia('(prefers-color-scheme: dark)').matches;
+      const theme = darkMode ? 'dark' : 'light';
+      const message = {
+        giscus: {
+          theme: theme
+        }
+      };
+      const iframe = document.querySelector('iframe.giscus-frame');
+        if (iframe instanceof HTMLIFrameElement) {
+          iframe.contentWindow?.postMessage(message, 'https://giscus.app');
+        }
+    };
+
+    // 初始主题设置
+    updateTheme();
+
+    // 监听系统主题变化
+    const mediaQuery = window.matchMedia('(prefers-color-scheme: dark)');
+    mediaQuery.addEventListener('change', updateTheme);
+
+    // 组件卸载时清理监听器
+    window.addEventListener('beforeunload', () => {
+      mediaQuery.removeEventListener('change', updateTheme);
+    });
+  });
+</script>
+
+<style>
+  #giscus-comment {
+    margin-top: 2rem;
+    color-scheme: light dark;
+  }
+</style>

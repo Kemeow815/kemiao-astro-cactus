@@ -1,0 +1,121 @@
+---
+import BaseLayout from "@/layouts/Base.astro"; // 替换为你的布局文件路径
+
+// 友链数据（示例）
+const friends = [
+  {
+    name: "纸鹿摸鱼处",
+    url: "https://blog.zhilu.cyou/",
+    avatar: "https://www.zhilu.cyou/api/avatar.png",
+    description: "纸鹿至麓不知路，支炉制露不止漉",
+  },
+  {
+    name: "张洪Heo",
+    url: "https://blog.zhheo.com/",
+    avatar: "https://img.zhheo.com/i/67d8fa75943e4.webp",
+    description: "分享设计与科技生活",
+  },
+];
+
+// 页面 Meta 信息（避免报错）
+const meta = {
+  title: "友情链接",
+  description: "我的博客友链列表",
+  ogImage: undefined,
+  articleDate: undefined,
+};
+---
+
+<BaseLayout {meta}>
+  <main id="main" class="prose max-w-none">
+    <h1>友情链接</h1>
+
+    <!-- 友链列表 -->
+    <div class="links-container">
+      {friends.map((friend) => (
+        <div class="link-card bg-gray-100 dark:bg-gray-800">
+          <img class="link-avatar" src={friend.avatar} alt={`${friend.name}头像`} />
+          <div class="link-info">
+            <h3 class="text-gray-900 dark:text-white font-bold">{friend.name}</h3>
+            <p class="text-gray-700 dark:text-gray-300">{friend.description}</p>
+            <a href={friend.url} target="_blank" class="text-blue-500 dark:text-blue-400 hover:underline">访问网站</a>
+          </div>
+        </div>
+      ))}
+    </div>
+
+    <!-- 申请规则 -->
+    <h2>申请规则</h2>
+    <ul>
+      <li>网站运营时间超过半年</li>
+      <li>内容合法合规，无违纪记录</li>
+      <li>博客保持周期性更新</li>
+    </ul>
+
+    <!-- 我的信息 -->
+    <h2>我的信息</h2>
+    <pre class="code-block bg-white text-gray-700 dark:bg-gray-800 dark:text-gray-300 font-mono">
+  &rbrace;
+  "name": "喵落阁",
+  "url": "https://blog-v6.kemiaosw.top",
+  "avatar": "https://cn.cravatar.com/avatar/1F6C8947D35A8186A1647009BA8BC5F2?size=256",
+  "description": "愿你看清一切真相后，依旧热爱你的家人和朋友。"
+  &rbrace;
+</pre>
+
+<!-- 申请按钮 -->
+<a class="apply-button" href="mailto:kemiaofriends@163.com">申请友链</a>
+</main>
+</BaseLayout>
+
+<style>
+.links-container {
+display: flex;
+flex-wrap: wrap;
+gap: 1rem;
+margin-top: 1rem;
+}
+
+.link-card {
+flex: 1 1 calc(50% - 0.5rem);
+padding: 1rem;
+border-radius: 8px;
+display: flex;
+align-items: center;
+gap: 1rem;
+transition: background-color 0.2s;
+}
+
+.link-avatar {
+width: 64px;
+height: 64px;
+border-radius: 50%;
+object-fit: cover;
+border: 1px solid #ccc;
+}
+
+.code-block {
+padding: 1rem;
+border-radius: 8px;
+overflow-x: auto;
+white-space: pre-wrap;
+word-break: break-word;
+transition: background-color 0.2s, color 0.2s;
+}
+
+.apply-button {
+display: inline-block;
+margin-top: 1rem;
+padding: 0.75rem 1.5rem;
+background: #3b82f6;
+color: white;
+border-radius: 9999px;
+text-decoration: none;
+font-weight: 500;
+transition: background 0.2s;
+}
+
+.apply-button:hover {
+background: #2563eb;
+}
+</style>
