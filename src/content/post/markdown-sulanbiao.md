@@ -2,7 +2,7 @@
 title: Markdown-速查表
 description: 记录 Markdown 的用法，便于查找。
 publishDate: "11 Feb 2025"
-tags: ["tech", "Markdowm", "语法", "速查表"]
+tags: ["tech", "Markdown", "语法", "速查表"]
 ---
 
 > 原文位置: <https://markdown.com.cn/cheat-sheet.html#%E6%80%BB%E8%A7%88>

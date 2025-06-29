@@ -2,7 +2,7 @@
 title: Markdown-标题语法 | 技术分享
 description: 记录 Markdown 语法的标题语法,方便学习和查找。
 publishDate: "12 Feb 2025"
-tags: ["tech", "Markdowm", "语法", "标题语法"]
+tags: ["tech", "Markdown", "语法", "标题语法"]
 ---
 
 > 原文位置: https://markdown.com.cn/basic-syntax/headings.html

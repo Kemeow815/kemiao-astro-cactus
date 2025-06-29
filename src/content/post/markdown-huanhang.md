@@ -1,8 +1,8 @@
 ---
-title: Markdowm 换行语法
+title: Markdown 换行语法
 description: Markdown 换行语法，如何创建换行以及最佳实践
 publishDate: "28 Jun 2025"
-tags: ["tech", "Markdowm", "语法", "换行"]
+tags: ["tech", "Markdown", "语法", "换行"]
 ---
 
 > 原文链接: https://markdown.com.cn/basic-syntax/line-breaks.html
